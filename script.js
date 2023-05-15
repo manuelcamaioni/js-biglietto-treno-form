@@ -12,7 +12,7 @@ const button = document.querySelector('button');
 
 let totalPrice = quantityKm.value * 0.233;
 // console.log(totalPrice);
-
+let clearInput = false;
 button.addEventListener('click', function() {
 
     if(passengerAge.value < 18){
@@ -22,6 +22,14 @@ button.addEventListener('click', function() {
     } else{
     
     }
-    // console.log(totalPrice);
-    document.querySelector('p').append(' ' + totalPrice.toFixed(2) + ' ' + '€');
+    
+    
+    if(quantityKm.value == '' || passengerAge.value == ''){
+        window.alert('Valori non validi');
+    } else{
+        document.querySelector('p').append(' ' + totalPrice.toFixed(2) + ' ' + '€');
+    }
+
+
 });
+
