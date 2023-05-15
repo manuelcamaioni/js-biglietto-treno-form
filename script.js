@@ -12,26 +12,25 @@ const button = document.querySelector('button');
 
 let totalPrice = quantityKm * 0.233;
 // console.log(totalPrice);
-let outputTotalPrice = document.querySelector('p');
+let outputTotalPrice = document.querySelector('span');
+
+let buttonClicked = false;
 
 button.addEventListener('click', function() {
+        if(passengerAge.value < 18){
+            totalPrice = totalPrice - ((20 / 100) * totalPrice);
+        }else if(passengerAge.value >= 65){
+            totalPrice = totalPrice - ((40 / 100) * totalPrice);
+        }
+        outputTotalPrice.innerHTML = (' ' + totalPrice.toFixed(2) + ' ' + '€');
 
-    if(passengerAge.value < 18){
-        totalPrice = totalPrice - ((20 / 100) * totalPrice);
-    }else if(passengerAge.value >= 65){
-        totalPrice = totalPrice - ((40 / 100) * totalPrice);
-    } else{
-    
-    }
-    
-    
-    if(quantityKm != parseInt(quantityKm) || passengerAge != parseInt(passengerAge)){
-        window.alert('Valori non validi');
-    } else{
-        outputTotalPrice.innerHTML += (' ' + totalPrice.toFixed(2) + ' ' + '€');
-    }
+        button.addEventListener('click', function() {
+            buttonClicked = true;
+            if(buttonClicked == true && outputTotalPrice.value != ''){
+                window.alert('Prezzo già calcolato');
+            }
 
-
-
+        });
 });
+
 
