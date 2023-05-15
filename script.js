@@ -17,11 +17,11 @@ button.addEventListener('click', function() {
 
     if(passengerAge.value < 18){
         totalPrice = totalPrice - ((20 / 100) * totalPrice);
-    } else if(passengerAge.value >= 65){
+    }else if(passengerAge.value >= 65){
         totalPrice = totalPrice - ((40 / 100) * totalPrice);
     } else{
     
     }
     // console.log(totalPrice);
-    document.querySelector('p').append(' ' + totalPrice + ' ' + '€');
+    document.querySelector('p').append(' ' + totalPrice.toFixed(2) + ' ' + '€');
 });
