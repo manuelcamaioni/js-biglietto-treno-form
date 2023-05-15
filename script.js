@@ -6,8 +6,8 @@
 //!     - va applicato uno sconto del 19.4% per i minorenni
 //!     - va applicato uno sconto del 37.7% per gli over 65
 
-const quantityKm = document.getElementById('trip-kilometers').value;
-const passengerAge = document.getElementById('passenger-age').value;
+const quantityKm = parseInt(document.getElementById('trip-kilometers').value);
+const passengerAge = parseInt(document.getElementById('passenger-age').value);
 const button = document.querySelector('button');
 
 let totalPrice = quantityKm * 0.233;
@@ -17,20 +17,20 @@ let outputTotalPrice = document.querySelector('span');
 let buttonClicked = false;
 
 button.addEventListener('click', function() {
-        if(passengerAge.value < 18){
+        if(passengerAge < 18){
             totalPrice = totalPrice - ((20 / 100) * totalPrice);
-        }else if(passengerAge.value >= 65){
+        }else if(passengerAge >= 65){
             totalPrice = totalPrice - ((40 / 100) * totalPrice);
         }
         outputTotalPrice.innerHTML = (' ' + totalPrice.toFixed(2) + ' ' + '€');
 
         button.addEventListener('click', function() {
             buttonClicked = true;
-            if(buttonClicked == true && outputTotalPrice.value != ''){
+            if(buttonClicked == true && outputTotalPrice != ''){
                 window.alert('Prezzo già calcolato');
             }
-
-        });
+            
+        }); 
 });
 
 
