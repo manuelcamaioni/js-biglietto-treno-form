@@ -15,15 +15,17 @@
     <title>Form biglietto del treno</title>
 </head>
 <body>
-    <div class="card w-50">
-        <label for="trip-kilometers">Chilometri da percorrere:</label>
-        <input type="number" name="trip-kilometers" id="trip-kilometers">
-        <label for="passenger-age">Età del/la passeggero/a:</label>
-        <input type="number" name="passenger-age" id="passenger-age">
-
-        <p>Prezzo del biglietto:</p>
-        <button>Calcola prezzo del biglietto</button>
+    <div class="card w-50 position-absolute p-2">
+            <label for="trip-kilometers">Chilometri da percorrere:</label>
+            <input type="number" name="trip-kilometers" id="trip-kilometers" class="mb-3">
+            <label for="passenger-age">Età del/la passeggero/a:</label>
+            <input type="number" name="passenger-age" id="passenger-age" class="mb-3">
+            <p>Prezzo del biglietto:</p>
+            <div class="text-center">
+                <button type="button" class="btn btn-primary w-50 text-center">Calcola prezzo del biglietto</button>
+            </div>
     </div>
+
     
 </body>
 </html>

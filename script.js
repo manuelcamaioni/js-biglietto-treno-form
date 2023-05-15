@@ -10,9 +10,18 @@ const quantityKm = document.getElementById('trip-kilometers');
 const passengerAge = document.getElementById('passenger-age');
 const button = document.querySelector('button');
 
-const totalPrice = quantityKm.value * 0.233;
-console.log(totalPrice);
+let totalPrice = quantityKm.value * 0.233;
+// console.log(totalPrice);
 
-// button.addEventListener('click', function(){
+button.addEventListener('click', function() {
 
-// });
+    if(passengerAge.value < 18){
+        totalPrice = totalPrice - ((20 / 100) * totalPrice);
+    } else if(passengerAge.value >= 65){
+        totalPrice = totalPrice - ((40 / 100) * totalPrice);
+    } else{
+    
+    }
+    // console.log(totalPrice);
+    document.querySelector('p').append(' ' + totalPrice + ' ' + '€');
+});
