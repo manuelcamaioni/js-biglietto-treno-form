@@ -7,18 +7,19 @@
 //!     - va applicato uno sconto del 37.7% per gli over 65
 
 
-const button = document.querySelector('button');
+const generateButton = document.getElementById('generate-ticket-button');
+const emptyButton = document.getElementById('empty-field-button');
 
 // console.log(totalPrice);
-
-button.addEventListener('click', function() {
+const outputTotalPrice = document.querySelector('p');
+generateButton.addEventListener('click', function() {
 
     const quantityKm = parseInt(document.getElementById('trip-kilometers').value);
     const passengerAge = parseInt(document.getElementById('passenger-age').value);
 
     let totalPrice = quantityKm * 0.233;
 
-    let outputTotalPrice = document.querySelector('span');
+    
     
 
 
@@ -31,15 +32,17 @@ button.addEventListener('click', function() {
             window.alert('I dati inseriti non sono validi, si prega di riprovare.');
             document.getElementById('trip-kilometers').value = undefined;
             document.getElementById('passenger-age').value = undefined;
-            outputTotalPrice = undefined;
 
-        } else {
-            outputTotalPrice.innerHTML = totalPrice.toFixed(2) + ' ' + '€';
-        }
-        
+        } else{}
+        outputTotalPrice.innerHTML += totalPrice.toFixed(2) + ' ' + '€';
 
 });
 
 
+emptyButton.addEventListener('click', function() {
 
+    document.getElementById('trip-kilometers').value = '';
+    document.getElementById('passenger-age').value = '';
+    outputTotalPrice.innerHTML = 'Prezzo del biglietto: ';
+});
 
