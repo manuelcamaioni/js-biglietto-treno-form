@@ -13,8 +13,8 @@ const button = document.querySelector('button');
 
 button.addEventListener('click', function() {
 
-    let quantityKm = parseInt(document.getElementById('trip-kilometers').value);
-    let passengerAge = parseInt(document.getElementById('passenger-age').value);
+    const quantityKm = parseInt(document.getElementById('trip-kilometers').value);
+    const passengerAge = parseInt(document.getElementById('passenger-age').value);
 
     let totalPrice = quantityKm * 0.233;
 
@@ -23,9 +23,9 @@ button.addEventListener('click', function() {
 
 
         if(passengerAge < 18){
-            totalPrice = totalPrice - ((20 / 100) * totalPrice);
+            totalPrice = totalPrice - (0.194 * totalPrice);
         }else if(passengerAge >= 65){
-            totalPrice = totalPrice - ((40 / 100) * totalPrice);
+            totalPrice = totalPrice - (0.377 * totalPrice);
         }else if(isNaN(passengerAge) || isNaN(quantityKm)){
 
             window.alert('I dati inseriti non sono validi, si prega di riprovare.');
@@ -34,7 +34,7 @@ button.addEventListener('click', function() {
             outputTotalPrice = undefined;
 
         } else {
-            outputTotalPrice.innerHTML = parseFloat(totalPrice.toFixed(2)) + ' ' + '€';
+            outputTotalPrice.innerHTML = totalPrice.toFixed(2) + ' ' + '€';
         }
         
 
